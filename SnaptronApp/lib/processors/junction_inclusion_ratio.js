@@ -78,7 +78,7 @@ function junctionInclusionRatio(queryId, groupIdA, groupIdB, k, sfilter) {
             "A": aVal,
             "B": bVal,
             "sample": sample,
-            "D": (bVal - aVal) / (bVal + aVal + 1)
+	    "D": ((bVal - aVal) + 1) / (bVal + aVal + 1)
         };
     });
     var sorted     = _.sortBy(allResults, "D");
