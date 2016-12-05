@@ -42,6 +42,8 @@
             From the <a href="/">Home</a> page, create a new query by entering a region and submitting. If you are
             signed in,
             new queries will automatically be added to your account. Regions can be in one of the following formats.
+	    Note: only junctions fully contained (inclusive) within the specified region as specified via either 
+	    a gene name or coordinates are returned.
         </p>
         <ul>
             <li><strong>Gene Name</strong>: The name, such as <code>CD99</code> to lookup. The largest extent
@@ -74,11 +76,34 @@
             junction must pass all filters for it to appear.
         </p>
 
-        <h2>Junction Map</h2>
+	<h2>Gene Model (dropdown)</h2>
+	<p>
+		Most users will want to select a gene model (usually the one with
+		the most exons) from the "Select Gene Model" drop down.  The vertical
+		blue boxes are exons and the green line is the coding sequence
+		extent (while it goes through the introns it's understood to just
+		represent start/end of CDS of the gene model).
+	</p>
+
+
+	<h2>Color By (dropdown)</h2>
+	<p>
+		The color by dropdown is useful to see which splice junctions are more
+		supported (in more samples) than others.  A suggested option is log(samples_count).
+		This may help the user to find which of the junctions are more likely to be real
+		since a lot of the junctions are almost certainly spurious.
+	</p>
 
         <h2>Junction Data Table</h2>
+	<p>
+		The raw junction data itself is available at the bottom of the
+		viewing page in the "All Junction Data" arrow though not all the
+		columns are shown by default.
 
-        <h1>Analysis</h1>
+		The raw junction table can be used to quickly find the exact junction(s)
+		by searching the page for a specific coordinate.
+	</p>
+
     </div>
     </body>
 </template>
