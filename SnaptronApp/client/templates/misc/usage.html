@@ -43,11 +43,10 @@
             </li>
         </ul>
         <p>
-            Multiple regions can be queried at the same time by using a comma separated list. For example: <code>CD99,
-            DRD4</code>.
-            Including too many
-            regions may result in many junctions being returned, and may make it more difficult to view genes
-	    separately. The regions that are a part of a query can be edited in the <code>Overview Panel</code> of the results page.
+	    Querying a gene which maps to multiple regions/chromosomes will result in a zoomed out view with little or no
+	    junctions visible (though still displayed).  In this case choosing a gene model (described below) may help
+	    identify region(s) to zoom into.  Double click a specific place on the viewing panel 
+	    to zoom in toward that area to see junction arcs.
         </p>
 
         <h2>Filtering</h2>
@@ -56,10 +55,17 @@
             any number of attributes, and multiple filters can be used together. The first opportunity to filter is from
 	    the home page. By using the <code>Filtering Options</code> panel, the initial result set can be filtered. This can
             be useful if the entered region(s) are large.
+
+	    All filters are turned off by default, except the <code>samples_count</code> filter 
+	    which is set to be greater than 20.
+	    This is to reduce the large number of sparsely occurring junctions from being loaded by default.
+	    You may of course lower/turn off this filter if you find that certain splice sites don't have junctions.
+	    However, be forewarned that turning it off or setting it to 1 will greatly increase the load time.
         </p>
         <p>
-            Filters can be modified (if you own the query) by using the <code>Edit</code> link in the overview panel.
-            The page must be reloaded anytime filters are changed. Filters are applied in the order they appear, and
+            Filters can be modified by returning to the original search page, changing the filter setting, and resubmitting.
+	    (click on the <code>Snaptron</code> link in upper left corner to return to the original search page).
+            Filters are applied in the order they appear, and a
             junction must pass all filters for it to appear.
         </p>
 

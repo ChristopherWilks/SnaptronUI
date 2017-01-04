@@ -26,7 +26,7 @@ Template.querybar.events({
 Template.querybar.onRendered(function () {
     Session.setDefault("regionInput", "");
     Session.setDefault("length", "");
-    Session.setDefault("samples", "");
+    Session.setDefault("samples", "20");
     Session.setDefault("covSum", "");
     Session.setDefault("covAvg", "");
     Session.setDefault("covMed", "");
