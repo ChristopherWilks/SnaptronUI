@@ -18,19 +18,20 @@
         <p>
             Snaptron allows you to explore exon-exon junctions from the Intropolis database (see <a
                 href="/about">About</a>).
-            All information is accessible, including junction evidence and sample information. Additionally, you can
-            perform
-            simple analysis on sets of junctions.
+            <!-- All information is accessible, including junction evidence and sample information. 
+	    Additionally, you can perform simple analysis on sets of junctions. -->
         </p>
 
         <h1>Basic Usage</h1>
         <h2>Viewing a Region</h2>
         <p>
-            From the <a href="/">Home</a> page, create a new query by entering a region and submitting. If you are
-            signed in,
-            new queries will automatically be added to your account. Regions can be in one of the following formats.
+            From the <a href="/">Home</a> page, create a new query by entering a region and submitting. 
+	    Regions can be in one of the following formats.
 	    Note: only junctions fully contained (inclusive) within the specified region as specified via either 
 	    a gene name or coordinates are returned.
+
+	    If gene region has never been loaded before or it's large or it contains more than a few hundred junctions,
+	    it will take a while (seconds-to a few minutes) to load.
         </p>
         <ul>
             <li><strong>Gene Name</strong>: The name, such as <code>CD99</code> to lookup. The largest extent

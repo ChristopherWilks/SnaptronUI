@@ -4,9 +4,9 @@
  * This file proves querying functions to get information from the snaptron server
  */
 
-const SNAPTRON_URL        = "http://stingray.cs.jhu.edu:8090/srav2/snaptron";
-const SAMPLE_URL          = "http://stingray.cs.jhu.edu:8090/srav2/samples";
-const ANNOTATION_URL      = "http://stingray.cs.jhu.edu:8090/srav2/annotations";
+const SNAPTRON_URL        = "http://snaptron.cs.jhu.edu/srav2/snaptron";
+const SAMPLE_URL          = "http://snaptron.cs.jhu.edu/srav2/samples";
+const ANNOTATION_URL      = "http://snaptron.cs.jhu.edu/srav2/annotations";
 const URL_REGIONS         = "?regions=";
 const UCSC_BROWSER_FORMAT = "&return_format=2";
 
