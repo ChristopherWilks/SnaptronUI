@@ -60,7 +60,7 @@ dfn {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 3em;
     margin: 0.67em 0
 }
 
@@ -70,11 +70,11 @@ mark {
 }
 
 small {
-    font-size: 80%
+    font-size: 90%
 }
 
 sub, sup {
-    font-size: 75%;
+    font-size: 90%;
     line-height: 0;
     position: relative;
     vertical-align: baseline
@@ -113,7 +113,7 @@ pre {
 
 code, kbd, pre, samp {
     font-family: monospace, monospace;
-    font-size: 1em
+    font-size: 2em
 }
 
 button, input, optgroup, select, textarea {
@@ -1354,13 +1354,13 @@ td, th {
 }
 
 html {
-    font-size: 10px;
+    font-size: 13px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
 body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.42857143;
     color: #777777;
     background-color: #fcfcfc
@@ -1474,7 +1474,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h1 .small, .h1 .small, h2 .small, .h2 .small, h3 .small, .h3 .small {
-    font-size: 65%
+    font-size: 80%
 }
 
 h4, .h4, h5, .h5, h6, .h6 {
@@ -1483,27 +1483,27 @@ h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small, h4 .small, .h4 .small, h5 .small, .h5 .small, h6 .small, .h6 .small {
-    font-size: 75%
+    font-size: 80%
 }
 
 h1, .h1 {
-    font-size: 33px
+    font-size: 40px
 }
 
 h2, .h2 {
-    font-size: 27px
+    font-size: 30px
 }
 
 h3, .h3 {
-    font-size: 23px
+    font-size: 30px
 }
 
 h4, .h4 {
-    font-size: 17px
+    font-size: 20px
 }
 
 h5, .h5 {
-    font-size: 13px
+    font-size: 10px
 }
 
 h6, .h6 {
@@ -1515,8 +1515,8 @@ p {
 }
 
 .lead {
-    margin-bottom: 18px;
-    font-size: 14px;
+    margin-bottom: 15px;
+    font-size: 18px;
     font-weight: 300;
     line-height: 1.4
 }
