@@ -46,12 +46,14 @@ iron:middleware-stack@1.1.0
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.6
+jspdf@0.0.0
 launch-screen@1.0.8
 livedata@1.0.16
 localstorage@1.0.7
 logging@1.0.10
 meteor@1.1.12
 meteor-base@1.0.2
+meteorhacks:cluster@1.6.9
 mikowals:batch-insert@1.1.13
 minifier-css@1.1.9
 minifier-js@1.1.9
