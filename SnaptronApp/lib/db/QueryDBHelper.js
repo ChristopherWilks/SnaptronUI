@@ -552,8 +552,10 @@ SnapApp.QueryDB.setQueryName = function (queryId, newName) {
  * @returns {boolean} Whether the current user is the owner
  */
 SnapApp.QueryDB.isQueryCurrentUsers = function (queryId) {
-    if (Meteor.userId() == null) {
+    //overriding for now, don't want loging in
+    return true;
+    /*if (Meteor.userId() == null) {
         return false;
     }
-    return SnapApp.QueryDB.getQuery(queryId)[QRY_OWNER] == Meteor.userId();
+    return SnapApp.QueryDB.getQuery(queryId)[QRY_OWNER] == Meteor.userId();*/
 };
