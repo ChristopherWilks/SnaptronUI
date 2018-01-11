@@ -4,6 +4,19 @@
 
 Template.junctionTable.helpers({
     "junctionTableCollection": function () {
+	if (Session.get("sampleIDFiltered") == null || Session.get("sampleIDFiltered") == undefined) {
+	sampleIDs = Session.get("sampleIDsInput").split(/[\s,]+/);
+	jxl = Junctions._collection;
+	jxl.find().forEach(function(jx) {
+		sids = jx.samples[jx.samples.indexOf(sampleIDs[0])];
+		for(var i = 1; i < sampleIDs.length; i++) {
+			sids += ","+jx.samples[jx.samples.indexOf(sampleIDs[i])];
+		}
+		console.log(sids)
+		jxl.update({_id: jx._id}, {$set: { samples: sids } });
+	});
+	Session.set("sampleIDFiltered",1);
+	}
         return Junctions;
     },
     "tableSettings": function () {
@@ -17,6 +30,8 @@ Template.junctionTable.helpers({
                 hidden: (SnapApp.Table.DEFAULT_ENABLED_COLS.indexOf(tableColumns[i]) == -1)
             });
         }
+	//console.log(tableColumns);
+	//console.log(fields);
 
         return {
             "showColumnToggles": true,

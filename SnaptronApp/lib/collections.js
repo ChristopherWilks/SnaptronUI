@@ -75,7 +75,7 @@
  */
 
 //<editor-fold desc="Collection Globals">
-SAMPLE_ID_FIELD = "intropolis_sample_id_i";
+SAMPLE_ID_FIELD = "rail_id";
 
 USER_QRYS          = "queries";
 USER_STARRED_QRYS  = "starredQueries";
@@ -101,6 +101,7 @@ QRY_FILTER_COV_SUM      = "coverage_sum";
 QRY_FILTER_COV_AVG      = "coverage_avg";
 QRY_FILTER_COV_MED      = "coverage_median";
 QRY_FILTER_LENGTH       = "length";
+QRY_FILTER_SAMPLE_IDS      = "samples";
 
 QRY_PROCESSORS             = "processors";
 QRY_PROCESSOR_TYPE         = "type";

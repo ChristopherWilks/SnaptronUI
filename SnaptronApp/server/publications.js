@@ -41,8 +41,8 @@ Meteor.publish("queryJunctionsNoSamps", function (queryId) {
     check(queryId, String);
 
     var fieldProj                = {};
-    fieldProj[JNCT_SAMPLES_KEY]  = 0;
-    fieldProj[JNCT_COVERAGE_KEY] = 0;
+    //fieldProj[JNCT_SAMPLES_KEY]  = 0;
+    //fieldProj[JNCT_COVERAGE_KEY] = 0;
     var junctions                = SnapApp.JunctionDB.findJunctionsForQuery(queryId, fieldProj);
     if (junctions == null) {
         return [];

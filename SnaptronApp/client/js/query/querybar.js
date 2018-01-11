@@ -25,6 +25,7 @@ Template.querybar.events({
 
 Template.querybar.onRendered(function () {
     Session.setDefault("regionInput", "");
+    Session.setDefault("sampleIDsInput", "");
     Session.setDefault("length", "");
     Session.setDefault("samples", "20");
     Session.setDefault("covSum", "");
@@ -37,6 +38,7 @@ Template.querybar.onRendered(function () {
     Session.setDefault("covMedOp", ">");
 
     this.find("#regionInput").value       = Session.get("regionInput");
+    this.find("#sampleIDsInput").value       = Session.get("sampleIDsInput");
     this.find("#lengthInput").value       = Session.get("length");
     this.find("#samplesCountInput").value = Session.get("samples");
     this.find("#coverageSumInput").value  = Session.get("covSum");
@@ -52,6 +54,7 @@ Template.querybar.onRendered(function () {
 
 function handleSubmitQuery(template) {
     var region  = template.find("#regionInput").value;
+    var sampleIDs  = template.find("#sampleIDsInput").value;
     var length  = parseInt(template.find("#lengthInput").value);
     var samples = parseInt(template.find("#samplesCountInput").value);
     var covSum  = parseFloat(template.find("#coverageSumInput").value);
@@ -65,17 +68,18 @@ function handleSubmitQuery(template) {
     var covMedOp  = template.find("#coverageMedInputOp").value;
 
     Session.set("regionInput", region);
+    Session.set("sampleIDsInput", sampleIDs);
     Session.set("lengthOp", lengthOp);
     Session.set("samplesOp", samplesOp);
     Session.set("covSumOp", covSumOp);
     Session.set("covAvgOp", covAvgOp);
     Session.set("covMedOp", covMedOp);
-
     if (!Session.get("loadingQuery")) {
         var filterFields = [QRY_FILTER_LENGTH, QRY_FILTER_SAMPLE_COUNT,
-            QRY_FILTER_COV_SUM, QRY_FILTER_COV_AVG, QRY_FILTER_COV_MED];
-        var filterOpts   = [lengthOp, samplesOp, covSumOp, covAvgOp, covMedOp];
-        var filterVals   = [length, samples, covSum, covAvg, covMed];
+            QRY_FILTER_COV_SUM, QRY_FILTER_COV_AVG, QRY_FILTER_COV_MED, QRY_FILTER_SAMPLE_IDS];
+        var filterOpts   = [lengthOp, samplesOp, covSumOp, covAvgOp, covMedOp, ''];
+        var filterVals   = [length, samples, covSum, covAvg, covMed, sampleIDs];
+	console.log(region + " " + sampleIDs)
         if (region != undefined && region != null && region.trim().length > 0) {
             Session.set("loadingQuery", true);
             Meteor.call("submitQuery", region, filterFields, filterOpts, filterVals, function (err, id) {

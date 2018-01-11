@@ -31,10 +31,18 @@ Meteor.methods({
         //Assemble filters
         var filters = [];
         for (var i = 0; i < filterFields.length; i++) {
-            var filter = getFilterFromFields(filterFields[i], filterOpStrs[i], filterVals[i]);
-            if (filter != null) {
-                filters.push(filter);
-            }
+	    if (filterFields[i] == QRY_FILTER_SAMPLE_IDS) {
+    		var filter = {};
+		filter[QRY_FILTER_FIELD] = filterFields[i];
+		filter[QRY_FILTER_OP]    = filterOpStrs[i];
+		filter[QRY_FILTER_VAL]   = filterVals[i];
+	    }
+	    else {
+            	var filter = getFilterFromFields(filterFields[i], filterOpStrs[i], filterVals[i]);
+	    }
+	    if (filter != null) {
+		filters.push(filter);
+	    }
         }
 
         //Attempt insert

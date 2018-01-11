@@ -33,6 +33,7 @@ SnapApp.JunctionDB.addJunctions = function (junctions) {
     return Junctions.batchInsert(junctions);
 };
 
+//STROBER
 /**
  * Returns a cursor for the junctions from the given
  * query with filters applied
@@ -64,6 +65,7 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
     };
 
     // Add query filters to the selector
+    console.log(filters)
     for (i = 0; i < filters.length; i++) {
         var filterDoc = filters[i];
         var field     = filterDoc[QRY_FILTER_FIELD];
@@ -71,10 +73,18 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
         var val       = filterDoc[QRY_FILTER_VAL];
 
         var restriction = selector[field];
+	sampleIDs=[]
         if (restriction == null || restriction == undefined) {
             restriction = {};
         }
-        restriction[op] = val;
+	if (field == QRY_FILTER_SAMPLE_IDS) {
+		op = '$all';
+		restriction[op] = val.split(/[\s,]+/);
+		sampleIDs = restriction[op];
+	}
+	else {
+        	restriction[op] = val;
+	}
         selector[field] = restriction;
     }
 
@@ -82,7 +92,20 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
     if (fieldsProj) {
         proj.fields = fieldsProj;
     }
-
+	//STROBER
+	//Junctions.find({samples: {$all: [ sample_id1, sample_id2,...]}})	
+	//console.log(selector);
+    if (selector[QRY_FILTER_SAMPLE_IDS] != null && selector[QRY_FILTER_SAMPLE_IDS] != undefined) {
+	    jxs = Junctions.find(selector, proj);
+	    /*for (i = 0, ln = jxs.length; i < ln; i++) {
+	    //jxs.forEach(function(jx) {
+		//console.log(jx);
+		//console.log(jx["samples_count"]);
+	    });
+	    //jxl = jxs._collection;*/
+	    
+	    return jxs;
+	}
     return Junctions.find(selector, proj);
 };
 
