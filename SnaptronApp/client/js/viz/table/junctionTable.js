@@ -4,16 +4,19 @@
 
 Template.junctionTable.helpers({
     "junctionTableCollection": function () {
-	if (Session.get("sampleIDFiltered") == null || Session.get("sampleIDFiltered") == undefined) {
+	if ((Session.get("sampleIDFiltered") != 1) &&
+		//|| Session.get("sampleIDFiltered") == undefined) && 
+		(Session.get("sampleIDsInput") != null && Session.get("sampleIDsInput") != undefined)) {
 	sampleIDs = Session.get("sampleIDsInput").split(/[\s,]+/);
+	console.log("filtering sample IDs " + sampleIDs);
 	jxl = Junctions._collection;
 	jxl.find().forEach(function(jx) {
-		sids = jx.samples[jx.samples.indexOf(sampleIDs[0])];
+		sids = jx.samples_covs[jx.samples.indexOf(sampleIDs[0])];
 		for(var i = 1; i < sampleIDs.length; i++) {
-			sids += ","+jx.samples[jx.samples.indexOf(sampleIDs[i])];
+			sids += ","+jx.samples_covs[jx.samples.indexOf(sampleIDs[i])];
 		}
-		console.log(sids)
-		jxl.update({_id: jx._id}, {$set: { samples: sids } });
+		//console.log(sids)
+		jxl.update({_id: jx._id}, {$set: { samples_covs: sids } });
 	});
 	Session.set("sampleIDFiltered",1);
 	}

@@ -135,8 +135,20 @@ SnapApp.Parser.parseJunctionsResponse = function (responseTSV) {
 		//console.log("col: " + col + " " + headers[col] + " field:" +JNCT_ID_FIELD + " " + elems[col] + " " + JNCT_COL_TYPES[headers[col]])
                 if (headers[col] == JNCT_ID_FIELD) {
                     junctionDoc["_id"] = elems[col];
-                } else {
-                    junctionDoc[headers[col]] = castMember(elems[col], JNCT_COL_TYPES[headers[col]])
+                } else if (headers[col] == JNCT_SAMPLES_KEY) {
+			junctionDoc[headers[col]] = [];
+			junctionDoc[JNCT_COVERAGE_KEY] = [];
+			samples = String(elems[col]).split(",");
+			junctionDoc[JNCT_BOTH_KEY] = [];
+			for(var z = 1; z < samples.length; z++)
+			{
+				junctionDoc[JNCT_BOTH_KEY].push(samples[z]);
+				var sc = samples[z].split(":");
+				junctionDoc[headers[col]].push(sc[0]);
+				junctionDoc[JNCT_COVERAGE_KEY].push(parseFloat(sc[1]));
+			}
+		} else {
+                    junctionDoc[headers[col]] = castMember(elems[col], JNCT_COL_TYPES[headers[col]]);
                 }
             }
 

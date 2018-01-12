@@ -133,6 +133,7 @@ JNCT_ID_FIELD      = "snaptron_id";
 JNCT_ANNOTATED_KEY = "annotated";
 JNCT_SAMPLES_KEY   = "samples";
 JNCT_COVERAGE_KEY  = "read_coverage_by_sample";
+JNCT_BOTH_KEY = "samples_covs";
 JNCT_COL_TYPES     = {
     "DataSource:Type": "str",
     "snaptron_id": "str",
@@ -146,8 +147,9 @@ JNCT_COL_TYPES     = {
     "right_motif": "str",
     "left_annotated": "str",
     "right_annotated": "str",
-    "samples": "str[]",
-    "read_coverage_by_sample": "float[]",
+    JNCT_SAMPLES_KEY: "str[]",
+    JNCT_BOTH_KEY: "str[]",
+    JNCT_COVERAGE_KEY: "float[]",
     "samples_count": "int",
     "coverage_sum": "float",
     "coverage_avg": "float",

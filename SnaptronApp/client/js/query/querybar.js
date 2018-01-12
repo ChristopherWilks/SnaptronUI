@@ -74,6 +74,7 @@ function handleSubmitQuery(template) {
     Session.set("covSumOp", covSumOp);
     Session.set("covAvgOp", covAvgOp);
     Session.set("covMedOp", covMedOp);
+    Session.set("sampleIDFiltered",0)
     if (!Session.get("loadingQuery")) {
         var filterFields = [QRY_FILTER_LENGTH, QRY_FILTER_SAMPLE_COUNT,
             QRY_FILTER_COV_SUM, QRY_FILTER_COV_AVG, QRY_FILTER_COV_MED, QRY_FILTER_SAMPLE_IDS];
