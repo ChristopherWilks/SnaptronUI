@@ -135,6 +135,7 @@ JNCT_ANNOTATED_KEY = "annotated";
 JNCT_SAMPLES_KEY   = "samples";
 JNCT_COVERAGE_KEY  = "read_coverage_by_sample";
 JNCT_BOTH_KEY = "samples_covs";
+JNCT_RATIO_KEY = "samples_ratios";
 JNCT_COL_TYPES     = {
     "DataSource:Type": "str",
     "snaptron_id": "str",
