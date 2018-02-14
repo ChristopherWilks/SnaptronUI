@@ -65,7 +65,8 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
     };
 
     // Add query filters to the selector
-    console.log(filters)
+    console.log(filters);
+    id_filter = '';
     for (i = 0; i < filters.length; i++) {
         var filterDoc = filters[i];
         var field     = filterDoc[QRY_FILTER_FIELD];
@@ -77,7 +78,11 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
         if (restriction == null || restriction == undefined) {
             restriction = {};
         }
-	if (field == QRY_FILTER_SAMPLE_IDS) {
+	if(field == QRY_FILTER_JX_IDS)
+	{
+		id_filter = val.split(/[\s,]+/);
+	}
+	else if (field == QRY_FILTER_SAMPLE_IDS) {
 		if (val != '' && val != null && val != undefined) {
 			op = '$in';
 			restriction[op] = val.split(/[\s,]+/);
@@ -97,7 +102,10 @@ SnapApp.JunctionDB.findJunctionsForQuery = function (queryId, fieldsProj) {
     }
 	//STROBER
 	//Junctions.find({samples: {$all: [ sample_id1, sample_id2,...]}})	
-	//console.log(selector);
+   	if(id_filter != '') {
+		selector['_id']={'$in':id_filter}
+	}
+	console.log(selector);
     return Junctions.find(selector, proj);
 };
 

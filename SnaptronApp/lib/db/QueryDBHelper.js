@@ -31,7 +31,7 @@ Meteor.methods({
         //Assemble filters
         var filters = [];
         for (var i = 0; i < filterFields.length; i++) {
-	    if (filterFields[i] == QRY_FILTER_SAMPLE_IDS) {
+	    if (filterFields[i] == QRY_FILTER_SAMPLE_IDS || filterFields[i] == QRY_FILTER_JX_IDS) {
     		var filter = {};
 		filter[QRY_FILTER_FIELD] = filterFields[i];
 		filter[QRY_FILTER_OP]    = filterOpStrs[i];

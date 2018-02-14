@@ -101,6 +101,7 @@ QRY_FILTER_COV_SUM      = "coverage_sum";
 QRY_FILTER_COV_AVG      = "coverage_avg";
 QRY_FILTER_COV_MED      = "coverage_median";
 QRY_FILTER_LENGTH       = "length";
+QRY_FILTER_JX_IDS      = "junctions";
 QRY_FILTER_SAMPLE_IDS      = "samples";
 
 QRY_PROCESSORS             = "processors";
